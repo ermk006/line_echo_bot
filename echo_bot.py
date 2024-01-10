@@ -39,6 +39,16 @@ def callback():
 
     return "OK"
 
+def generate_responce(from_user, text):
+    res = []
+    res.append(f"お　{from_user}さん")
+    if "こん" in text:
+        res.append("こんちゃー")
+    elif "おは" in text:
+        res.append("おはよー")
+    else:
+        res.append("わー")
+    return res
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_text_message(event):

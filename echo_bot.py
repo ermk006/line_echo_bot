@@ -57,13 +57,10 @@ def handle_text_message(event):
         line_bot_api = MessagingApi(api_client)
         if isinstance(event.source, UserSource):
             profile = line_bot_api.get_profile(event.source.user_id)
+            res = generate_responce(profile.display_name, text)
             line_bot_api.reply_message_with_http_info(
                 ReplyMessageRequest(
-                    reply_token=event.reply_token,
-                    messages=[
-                        TextMessage(text="From: " + profile.display_name),
-                        TextMessage(text="Received message: " + text),
-                    ],
+                    reply_token=event.reply_token,messages=res,
                 )
             )
         else:

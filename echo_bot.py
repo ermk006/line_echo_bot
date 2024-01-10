@@ -41,7 +41,7 @@ def callback():
 
 def generate_responce(from_user, text):
     res = []
-    res.append(TextMessage(f"お　{from_user}さん"))
+    res.append(TextMessage(f"お{from_user}さん"))
     if "こん" in text:
         res.append(TextMessage("こんちゃー"))
     elif "おは" in text:
